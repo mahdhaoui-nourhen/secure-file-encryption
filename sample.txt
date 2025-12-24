@@ -1,0 +1,2 @@
+Hello, this is a secret file.
+Only authorized users can read it.
