@@ -25,22 +25,22 @@ Only users with the RSA private key can decrypt the encrypted file.
 ## Project Structure
 secure-file-encryption/
 │
-├── encrypt.py # Script to encrypt files
-├── decrypt.py # Script to decrypt files
-├── generate_keys.py # Script to generate RSA keys
-├── sample.txt # Original sample file
-├── sample.enc # Encrypted file
-├── sample_decrypted.txt # Decrypted file
-├── README.md # Project documentation
-├── keys/ # Folder storing keys
-│ ├── private.pem
-│ ├── public.pem
-│ └── aes_key.enc
-└── screenshots/ # Screenshots for demonstration
-├── step1_structure.png
-├── step2_encrypt.png
-├── step3_decrypt.png
-└── step4_result.png
+*encrypt.py # Script to encrypt files
+ *decrypt.py # Script to decrypt files
+ *generate_keys.py # Script to generate RSA keys
+ *sample.txt # Original sample file
+ *sample.enc # Encrypted file
+ *sample_decrypted.txt # Decrypted file
+ *README.md # Project documentation
+ *keys/ # Folder storing keys
+│ * private.pem
+│ *public.pem
+│ * aes_key.enc
+*screenshots/ # Screenshots for demonstration
+* step1_structure.png
+* step2_encrypt.png
+* step3_decrypt.png
+* step4_result.png
 ---
 
 ## Encryption Process
@@ -78,7 +78,7 @@ python3 generate_keys.py
 👩‍💻 Author
 
 Secure File Encryption Project
-Developed by: [mahdhaoui nourhen]
+Developed by: mahdhaoui nourhen
 
 📝 Conclusion
 
