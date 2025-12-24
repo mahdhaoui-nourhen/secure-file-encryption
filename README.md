@@ -12,30 +12,61 @@ Only users with the RSA private key can decrypt the encrypted file.
 ---
 
 ## Technologies Used
-- Python 3
-- PyCryptodome
-- AES (Advanced Encryption Standard)
-- RSA (Public Key Cryptography)
-- Kali Linux
+ **Python 3**: Main programming language.
+- **PyCryptodome**: Cryptography library for AES and RSA.
+- **AES (Advanced Encryption Standard)**: For fast and secure symmetric encryption.
+- **RSA (Public Key Cryptography)**: For secure asymmetric encryption of AES keys.
+- **Kali Linux**: Development and testing environment.
+
+---
 
 ---
 
 ## Project Structure
-
+secure-file-encryption/
+│
+├── encrypt.py # Script to encrypt files
+├── decrypt.py # Script to decrypt files
+├── generate_keys.py # Script to generate RSA keys
+├── sample.txt # Original sample file
+├── sample.enc # Encrypted file
+├── sample_decrypted.txt # Decrypted file
+├── README.md # Project documentation
+├── keys/ # Folder storing keys
+│ ├── private.pem
+│ ├── public.pem
+│ └── aes_key.enc
+└── screenshots/ # Screenshots for demonstration
+├── step1_structure.png
+├── step2_encrypt.png
+├── step3_decrypt.png
+└── step4_result.png
 ---
 
 ## Encryption Process
-1. An AES-256 key is generated
-2. The file is encrypted using AES
-3. The AES key is encrypted using the RSA public key
-4. The encrypted file and encrypted key are stored securely
+The encryption process uses **AES-256 in EAX mode** for strong symmetric encryption and **RSA (2048-bit)** to securely encrypt the AES key.  
+
+Steps:
+1. Generate a **random 256-bit AES key**.
+2. Encrypt the original file (`sample.txt`) using AES.
+3. Encrypt the AES key using the **RSA public key**.
+4. Save the **encrypted file** (`sample.enc`) and **encrypted AES key** (`keys/aes_key.enc`).
+
+> This hybrid encryption ensures that even if the encrypted file is stolen, without the RSA private key, the content cannot be decrypted.
 
 ---
 
 ## Decryption Process
-1. The AES key is decrypted using the RSA private key
-2. The encrypted file is decrypted using the AES key
-3. The original file is restored
+Decryption restores the original file using the following steps:
+
+1. Load the **RSA private key** from `keys/private.pem`.
+2. Decrypt the **AES key** using the RSA private key.
+3. Decrypt the **encrypted file** (`sample.enc`) using the AES key.
+4. Save the decrypted content to `sample_decrypted.txt`.
+
+> Only authorized users with the private key can decrypt and access the original content.
+
+---
 
 ---
 
@@ -44,17 +75,31 @@ Only users with the RSA private key can decrypt the encrypted file.
 ### Generate RSA keys
 ```bash
 python3 generate_keys.py
+👩‍💻 Author
 
-## 🖼️ Screenshots
+Secure File Encryption Project
+Developed by: [mahdhaoui nourhen]
 
-### Step 1: Project Structure
-![Project Structure](screenshots/step1_structure.png)
+📝 Conclusion
 
-### Step 2: Encrypt the File
-![Encrypt](screenshots/step2_encrypt.png)
+This Secure File Encryption System demonstrates a practical implementation of hybrid cryptography, combining the speed of AES-256 with the security of RSA asymmetric encryption.
 
-### Step 3: Decrypt the File
-![Decrypt](screenshots/step3_decrypt.png)
+Key takeaways:
 
-### Step 4: Result
-![Result](screenshots/step4_result.png)
+Confidentiality: Sensitive data is protected at rest and in transit.
+
+Security: AES key is never exposed; only RSA private key can decrypt it.
+
+Usability: Scripts are simple, modular, and easy to run in any Python 3 environment.
+
+Scalability: This framework can be extended to encrypt multiple files, integrate with user authentication, or incorporate additional security layers.
+
+By following best practices in cryptography and software organization, this project provides a robust and professional encryption solution, suitable for academic demonstration, secure personal storage, or integration into larger systems requiring data security.
+
+📌 References
+
+PyCryptodome Documentation
+
+AES Encryption
+
+RSA Encryption
