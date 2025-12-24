@@ -45,3 +45,16 @@ Only users with the RSA private key can decrypt the encrypted file.
 ```bash
 python3 generate_keys.py
 
+## 🖼️ Screenshots
+
+### Step 1: Project Structure
+![Project Structure](screenshots/step1_structure.png)
+
+### Step 2: Encrypt the File
+![Encrypt](screenshots/step2_encrypt.png)
+
+### Step 3: Decrypt the File
+![Decrypt](screenshots/step3_decrypt.png)
+
+### Step 4: Result
+![Result](screenshots/step4_result.png)
